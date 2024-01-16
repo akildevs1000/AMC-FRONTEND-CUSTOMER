@@ -8,13 +8,6 @@
   },
   {
     "icon": "mdi-clipboard-text-clock",
-    "title": "Companies",
-    "to": "/companies",
-    "menu": "companies",
-    "module": "topmenu"
-  },
-  {
-    "icon": "mdi-clipboard-text-clock",
     "title": "Tickets",
     "to": "/tickets",
     "menu": "tickets",

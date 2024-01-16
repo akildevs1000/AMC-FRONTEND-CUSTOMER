@@ -11,7 +11,7 @@
       <v-col>
         <v-toolbar flat>
           <v-row>
-            <v-col>
+            <!-- <v-col>
               <v-autocomplete
                 clearable
                 label="Select Company"
@@ -23,7 +23,7 @@
                 item-text="name"
                 :hide-details="true"
               ></v-autocomplete>
-            </v-col>
+            </v-col> -->
             <v-col cols="2">
               <v-autocomplete
                 label="Select Job Type"
@@ -124,67 +124,6 @@
       class="elevation-1"
       :server-items-length="totalRowsCount"
     >
-      <template v-slot:item.company="{ item }">
-        <v-card
-          v-if="item.work_type == 'amc'"
-          elevation="0"
-          style="background: none"
-          class="d-flex align-center"
-        >
-          <v-avatar class="mr-1">
-            <img
-              :src="
-                item.amc.contract.company && item.amc.contract.company.logo
-                  ? item.amc.contract.company.logo
-                  : '/no-image.png'
-              "
-              alt="Avatar"
-            />
-          </v-avatar>
-          <div class="mt-2">
-            <strong>
-              {{
-                item.amc.contract.company && item.amc.contract.company.name
-              }}</strong
-            >
-            <p>
-              {{
-                item.amc.contract.company && item.amc.contract.company.address
-              }}
-            </p>
-          </div>
-        </v-card>
-        <v-card
-          v-else-if="item.work_type == 'ticket'"
-          elevation="0"
-          style="background: none"
-          class="d-flex align-center"
-        >
-          <v-avatar class="mr-1">
-            <img
-              :src="
-                item.ticket.company && item.ticket.company.logo
-                  ? item.ticket.company.logo
-                  : '/no-image.png'
-              "
-              alt="Avatar"
-            />
-          </v-avatar>
-          <div class="mt-2">
-            <strong>
-              {{ item.ticket.company && item.ticket.company.name }}</strong
-            >
-            <p>
-              {{ item.ticket.company && item.ticket.company.address }}
-            </p>
-          </div>
-        </v-card>
-      </template>
-
-      <template v-slot:item.summary="{ item }">
-        <ReadMore :text="item.summary" />
-      </template>
-
       <template v-slot:item.before_attachment="{ item }">
         <ViewAttachment
           v-if="item.before_attachment"

@@ -10,20 +10,8 @@
         <v-toolbar flat>
           Tickets
           <v-icon color="black" @click="getDataFromApi">mdi-reload</v-icon>
-          <v-row no-gutters class="mx-5">
-            <v-col cols="2">
-              <CompanyList
-                @id="
-                  (e) => {
-                    filters.company_id = e;
-                    getDataFromApi();
-                  }
-                "
-              />
-            </v-col>
-          </v-row>
           <v-spacer></v-spacer>
-          <TicketCreate />
+          <!-- <TicketCreate /> -->
         </v-toolbar>
         <v-data-table
           dense
@@ -38,28 +26,6 @@
           class="elevation-1"
           :server-items-length="totalRowsCount"
         >
-          <template v-slot:item.company="{ item, index }">
-            <v-card
-              elevation="0"
-              style="background: none"
-              class="d-flex align-center"
-            >
-              <!-- <v-avatar class="mr-1">
-                <img
-                  :src="
-                    item.company && item.company.logo
-                      ? item.company.logo
-                      : '/no-image.png'
-                  "
-                  alt="Avatar"
-                />
-              </v-avatar> -->
-              <div class="mt-2">
-                <strong> {{ item.company && item.company.name }}</strong>
-                <p>{{ item.company && item.company.address }}</p>
-              </div>
-            </v-card>
-          </template>
           <template v-slot:item.status="{ item }">
             <v-chip dark small :color="statusRelatedColor(item.status)">{{
               item.status
@@ -84,21 +50,11 @@
           </template>
 
           <template v-slot:item.technicians="{ item }">
-            <div
-              color="primary"
-              v-for="(technician, index) in item.technicians"
-              :key="index"
-            >
-              <v-tooltip top color="deep-purple">
-                <template v-slot:activator="{ on, attrs }">
-                  <div>Date: 15-01-24</div>
-                  {{
-                    technician.name
-                  }}
-                </template>
-                
-                <span>{{ technician.name }}</span>
-              </v-tooltip>
+            <div v-if="item.technicians && item.technicians[0]">
+              <div>{{ item.technicians[0].pivot.schedule_date }}</div>
+              <v-chip x-small color="primary">{{
+                item.technicians[0].name
+              }}</v-chip>
             </div>
           </template>
 
@@ -115,7 +71,7 @@
                     <TicketSingle :key="getRandomId()" :item="item" />
                   </v-list-item-title>
                 </v-list-item>
-                <v-list-item>
+                <!-- <v-list-item>
                   <v-list-item-title>
                     <TicketAssign
                       :key="getRandomId()"
@@ -125,7 +81,7 @@
                       "
                     />
                   </v-list-item-title>
-                </v-list-item>
+                </v-list-item> -->
                 <v-list-item>
                   <v-list-item-title>
                     <TicketEdit
@@ -138,7 +94,10 @@
                 </v-list-item>
                 <v-list-item>
                   <v-list-item-title>
-                    <TicketViewAttachment :key="getRandomId()" :src="item.attachment" />
+                    <TicketViewAttachment
+                      :key="getRandomId()"
+                      :src="item.attachment"
+                    />
                   </v-list-item-title>
                 </v-list-item>
               </v-list>
@@ -181,7 +140,6 @@ export default {
   async created() {
     this.loading = false;
     this.getDataFromApi();
-    //this.getDepartments(options);
   },
   mounted() {},
   watch: {
@@ -233,7 +191,6 @@ export default {
     },
     async getDataFromApi() {
       this.loadinglinear = true;
-
       const data = await this.$store.dispatch("fetchData", {
         key: "tickets",
         options: this.options,

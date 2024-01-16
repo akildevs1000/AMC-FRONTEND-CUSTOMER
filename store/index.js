@@ -109,7 +109,7 @@ export const actions = {
 
       let configs = {
         params: {
-          // company_id: this.$auth.user.company_id,
+          company_id: this.$auth.user.company_id,
         },
       };
 

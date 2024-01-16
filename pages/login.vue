@@ -321,7 +321,7 @@ export default {
     otp: "",
     userId: "",
     credentials: {
-      email: "demo@gmail.com",
+      email: "kuzep@mailinator.com",
       password: "secret",
     },
   }),

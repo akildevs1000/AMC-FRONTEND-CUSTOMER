@@ -8,18 +8,6 @@
     "filterable": true,
     "filterSpecial": false
   },
-
-  {
-    "text": "Company",
-    "align": "left",
-    "sortable": true,
-    "key": "company",
-    "value": "company",
-    "filterable": true,
-    "filterSpecial": false
-  },
-  
- 
   {
     "text": "Month",
     "align": "left",
@@ -30,7 +18,7 @@
     "filterSpecial": false
   },
   {
-    "text": "Technicians",
+    "text": "Schedule Date/Technician",
     "align": "left",
     "sortable": true,
     "key": "technicians",
@@ -46,12 +34,5 @@
     "value": "status",
     "filterable": true,
     "filterSpecial": false
-  },
-  {
-    "text": "Action",
-    "align": "left",
-    "sortable": false,
-    "key": "options",
-    "value": "options"
   }
 ]

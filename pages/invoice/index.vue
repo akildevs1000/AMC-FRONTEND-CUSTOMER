@@ -25,7 +25,7 @@
             <v-toolbar flat>
               {{ Model }}s
               <v-icon color="black" @click="getDataFromApi">mdi-reload</v-icon>
-              <v-row no-gutters class="mx-5">
+              <!-- <v-row no-gutters class="mx-5">
                 <v-col cols="2">
                   <CompanyList
                     @id="
@@ -36,8 +36,9 @@
                     "
                   />
                 </v-col>
-              </v-row>
-              <v-btn
+              </v-row> -->
+              <v-spacer></v-spacer>
+              <!-- <v-btn
                 dense
                 small
                 class="primary"
@@ -47,7 +48,7 @@
               >
                 Create Invoice
                 <v-icon right dark>mdi-plus-circle-outline</v-icon>
-              </v-btn>
+              </v-btn> -->
             </v-toolbar>
           </template>
           <template v-slot:item.company="{ item, index }">
@@ -81,15 +82,6 @@
               >{{ item.status }}</v-chip
             >
           </template>
-          <template v-slot:item.invoice_number="{ item }">
-            <p
-              class="blue--text"
-              style="cursor: pointer"
-              @click="() => $router.push(`/invoice/single/${item.id}`)"
-            >
-              {{ item.invoice_number }}
-            </p>
-          </template>
           <template v-slot:item.description="{ item }">
             <ReadMore :text="item.description" />
           </template>
@@ -121,17 +113,6 @@
                       :key="getRandomId()"
                       :item="item"
                     />
-                  </v-list-item-title>
-                </v-list-item>
-                <v-list-item :to="`/invoice/${item.id}`">
-                  <v-list-item-title>
-                    <v-icon small color="black">mdi-pencil</v-icon> Edit
-                  </v-list-item-title>
-                </v-list-item>
-                <v-list-item :to="`/invoice/clone/${item.id}`">
-                  <v-list-item-title>
-                    <v-icon small color="black">mdi-content-duplicate</v-icon>
-                    Clone
                   </v-list-item-title>
                 </v-list-item>
               </v-list>

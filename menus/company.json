@@ -8,14 +8,6 @@
     "module": "dashboard"
   },
   {
-    "icon": "mdi-domain",
-    "title": "Companies",
-    "to": "/companies",
-    "submenu": "dashboard",
-    "menu": "companies",
-    "module": "dashboard"
-  },
-  {
     "icon": "mdi-ticket",
     "title": "Tickets",
     "to": "/tickets",
@@ -32,19 +24,12 @@
     "module": "dashboard"
   },
   {
-    "icon": "mdi-shape-square-plus",
-    "title": "Setup",
-    "to": "/setup",
-    "submenu": "setup",
-    "menu": "setup",
+    "icon": "mdi-cash-multiple",
+    "title": "Invoices",
+    "to": "/invoice",
+    "submenu": "invoice",
+    "menu": "invoice",
     "module": "dashboard"
-  },
-  {
-    "icon": "mdi-domain",
-    "title": "Companies",
-    "to": "/companies",
-    "menu": "companies",
-    "module": "companies"
   },
   {
     "icon": "mdi-ticket",

@@ -10,7 +10,7 @@
         <v-toolbar flat>
           AMCs
           <v-icon color="black" @click="getDataFromApi">mdi-reload</v-icon>
-          <v-row no-gutters class="mx-5">
+          <!-- <v-row no-gutters class="mx-5">
             <v-col cols="2">
               <CompanyList
                 @id="
@@ -21,7 +21,7 @@
                 "
               />
             </v-col>
-          </v-row>
+          </v-row> -->
         </v-toolbar>
         <v-data-table
           dense
@@ -36,33 +36,6 @@
           class="elevation-1"
           :server-items-length="totalRowsCount"
         >
-          <template v-slot:item.company="{ item: { contract }, index }">
-            <v-card
-              elevation="0"
-              style="background: none"
-              class="d-flex align-center"
-            >
-              <!-- <v-avatar class="mr-1">
-                <img
-                  :src="
-                    contract.company && contract.company.logo
-                      ? contract.company.logo
-                      : '/no-image.png'
-                  "
-                  alt="Avatar"
-                />
-              </v-avatar> -->
-              <div class="mt-2">
-                <strong>
-                  {{ contract.company && contract.company.name }}</strong
-                >
-                <p>
-                  {{ contract.company && contract.company.address }}
-                </p>
-              </div>
-            </v-card>
-          </template>
-
           <template v-slot:item.status="{ item }">
             <v-chip dark small :color="statusRelatedColor(item.status)">{{
               item.status
@@ -70,24 +43,13 @@
           </template>
 
           <template v-slot:item.technicians="{ item }">
-            <v-avatar
-              size="30"
-              color="primary"
-              v-for="(technician, index) in item.technicians"
-              :key="index"
-            >
-              <v-tooltip top color="deep-purple">
-                <template v-slot:activator="{ on, attrs }">
-                  <span v-bind="attrs" v-on="on" class="white--text">{{
-                    getCapitalFirstLetters(technician.name)
-                  }}</span>
-                </template>
-                <span>{{ technician.name }}</span>
-              </v-tooltip>
-            </v-avatar>
+            <div v-if="item.technicians && item.technicians[0]">
+              <div>{{ item.technicians[0].pivot.schedule_date }}</div>
+                <v-chip x-small color="primary">{{ item.technicians[0].name }}</v-chip>
+            </div>
           </template>
 
-          <template v-slot:item.options="{ item }">
+          <!-- <template v-slot:item.options="{ item }">
             <v-menu bottom left>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn dark-2 icon v-bind="attrs" v-on="on">
@@ -106,12 +68,12 @@
                     />
                   </v-list-item-title>
                 </v-list-item>
-                <!-- <v-list-item>
+                <v-list-item>
                   <v-list-item-title>
                     <ServiceCallSingle :key="getRandomId()" :item="item" />
                   </v-list-item-title>
-                </v-list-item> -->
-                <!-- <v-list-item>
+                </v-list-item>
+                <v-list-item>
                   <v-list-item-title>
                     <ServiceCallEdit
                       :item="item"
@@ -120,10 +82,10 @@
                       "
                     />
                   </v-list-item-title>
-                </v-list-item> -->
+                </v-list-item>
               </v-list>
             </v-menu>
-          </template>
+          </template> -->
         </v-data-table>
       </v-card>
     </div>

@@ -1,15 +1,5 @@
 [
   {
-    "text": "Company",
-    "align": "left",
-    "sortable": true,
-    "key": "company",
-    "value": "company",
-    "filterable": true,
-    "filterSpecial": false,
-    "width": "300px"
-  },
-  {
     "text": "Job Type",
     "align": "left",
     "sortable": true,
@@ -45,16 +35,6 @@
     "value": "after_attachment",
     "filterable": true,
     "filterSpecial": false
-  },
-  {
-    "text": "Summary",
-    "align": "left",
-    "sortable": true,
-    "key": "summary",
-    "value": "summary",
-    "filterable": true,
-    "filterSpecial": false,
-    "width": "300px"
   },
   {
     "text": "Created Date",

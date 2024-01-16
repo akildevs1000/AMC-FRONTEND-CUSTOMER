@@ -13,10 +13,10 @@
           class="mx-2"
           dark
           small
-          :color="statusRelatedColor(item.status)"
-          >{{ item.status }}</v-chip
+          :color="statusRelatedColor(payload.status)"
+          >{{ payload.status }}</v-chip
         >
-
+        
         <v-spacer></v-spacer>
         <v-btn icon small @click="dialog = false"
           ><v-icon color="primary">mdi-close-circle-outline</v-icon></v-btn
@@ -41,7 +41,7 @@
                 v-model="payload.title"
                 :hide-details="!errors.title"
                 :error-messages="errors && errors.title ? errors.title[0] : ''"
-                disabled
+                readonly
               ></v-text-field>
             </td>
           </tr>
@@ -58,40 +58,14 @@
                 :error-messages="
                   errors && errors.description ? errors.description[0] : ''
                 "
-                disabled
+                readonly
               ></v-textarea>
             </td>
           </tr>
           <tr>
             <th>Prority</th>
             <td>
-              <v-select
-                :items="priorities"
-                item-value="id"
-                item-text="name"
-                dense
-                outlined
-                v-model="payload.priority_id"
-                :hide-details="!errors.priority_id"
-                :error-messages="
-                  errors && errors.priority_id ? errors.priority_id[0] : ''
-                "
-              ></v-select>
-            </td>
-          </tr>
-          <tr>
-            <th>Status</th>
-            <td>
-              <v-select
-                :items="[`Open`, `In Progress`, `Pending`, `Close`]"
-                dense
-                outlined
-                v-model="payload.status"
-                :hide-details="!errors.status"
-                :error-messages="
-                  errors && errors.status ? errors.status[0] : ''
-                "
-              ></v-select>
+              {{ payload.priority.name }}
             </td>
           </tr>
           <tr>
@@ -173,14 +147,6 @@ export default {
       .then(({ data }) => (this.priorities = data));
   },
   methods: {
-    priorityRelatedColor(value) {
-      let color = {
-        High: "red",
-        Medium: "blue",
-        Low: "grey",
-      };
-      return color[value];
-    },
 
     statusRelatedColor(value) {
       let color = {

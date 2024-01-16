@@ -6,21 +6,8 @@
     "key": "id",
     "value": "id",
     "filterable": true,
-    "filterSpecial": false,
-    "width": "130px"
+    "filterSpecial": false
   },
-
-  {
-    "text": "Company",
-    "align": "left",
-    "sortable": true,
-    "key": "company",
-    "value": "company",
-    "filterable": true,
-    "filterSpecial": false,
-    "width": "250px"
-  },
-
   {
     "text": "Title",
     "align": "left",
@@ -28,8 +15,7 @@
     "key": "title",
     "value": "title",
     "filterable": true,
-    "filterSpecial": false,
-    "width": "150px"
+    "filterSpecial": false
   },
   {
     "text": "Priority",
@@ -38,8 +24,7 @@
     "key": "priority",
     "value": "priority.name",
     "filterable": true,
-    "filterSpecial": false,
-    "width": "130px"
+    "filterSpecial": false
   },
   {
     "text": "Ticket Open Date Time",
@@ -48,11 +33,10 @@
     "key": "ticket_open_date_time",
     "value": "ticket_open_date_time",
     "filterable": true,
-    "filterSpecial": false,
-    "width": "180px"
+    "filterSpecial": false
   },
   {
-    "text": "Schedule Date",
+    "text": "Schedule Date/Technician",
     "align": "left",
     "sortable": true,
     "key": "technicians",
@@ -67,8 +51,7 @@
     "key": "ticket_close_date_time",
     "value": "ticket_close_date_time",
     "filterable": true,
-    "filterSpecial": false,
-    "width": "180px"
+    "filterSpecial": false
   },
   {
     "text": "History",
@@ -86,8 +69,7 @@
     "key": "status",
     "value": "status",
     "filterable": true,
-    "filterSpecial": false,
-    "width": "130px"
+    "filterSpecial": false
   },
   {
     "text": "Action",
