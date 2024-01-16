@@ -1,0 +1,57 @@
+[
+  {
+    "text": "Reference Id",
+    "align": "left",
+    "sortable": true,
+    "key": "id",
+    "value": "id",
+    "filterable": true,
+    "filterSpecial": false
+  },
+
+  {
+    "text": "Company",
+    "align": "left",
+    "sortable": true,
+    "key": "company",
+    "value": "company",
+    "filterable": true,
+    "filterSpecial": false
+  },
+  
+ 
+  {
+    "text": "Month",
+    "align": "left",
+    "sortable": true,
+    "key": "schedule_start_date",
+    "value": "schedule_start_date",
+    "filterable": true,
+    "filterSpecial": false
+  },
+  {
+    "text": "Technicians",
+    "align": "left",
+    "sortable": true,
+    "key": "technicians",
+    "value": "technicians",
+    "filterable": true,
+    "filterSpecial": false
+  },
+  {
+    "text": "Status",
+    "align": "left",
+    "sortable": true,
+    "key": "status",
+    "value": "status",
+    "filterable": true,
+    "filterSpecial": false
+  },
+  {
+    "text": "Action",
+    "align": "left",
+    "sortable": false,
+    "key": "options",
+    "value": "options"
+  }
+]
